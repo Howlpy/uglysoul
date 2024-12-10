@@ -21,3 +21,6 @@ Thumbs.db
 
 # Ignore compiled Python files
 *.pyo
+
+#ignore dynamic memory
+dynamic_memory.json

@@ -17,14 +17,16 @@ class XAIClient:
         data = {
             "prompt": prompt,
             "model":"grok-beta",
-            "max_tokens": 150, 
+            "max_tokens": 150,
+            "stop": ["<|eos|>"] 
         }
 
         try:
             response = requests.post(f"{self.base_url}/completions", json=data, headers=headers)
             response.raise_for_status()
-            print(response.json())
-            return response.json()["choices"][0]["text"]
+            text_response = response.json()["choices"][0]["text"].strip().replace("<|eos|>", "").strip()
+            
+            return text_response
         except requests.exceptions.RequestException as e:
             print(f"Error al conectar con xAI: {e}")
             return None
