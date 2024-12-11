@@ -17,7 +17,7 @@ class XAIClient:
         data = {
             "prompt": prompt,
             "model":"grok-beta",
-            "max_tokens": 150,
+            "max_tokens": 100,
             "stop": ["<|eos|>"] 
         }
 
