@@ -1,6 +1,7 @@
 # Ignore .env files
 .env
 
+
 # Ignore Python cache
 __pycache__/
 *.py[cod]
@@ -22,5 +23,4 @@ Thumbs.db
 # Ignore compiled Python files
 *.pyo
 
-#ignore dynamic memory
 dynamic_memory.json
