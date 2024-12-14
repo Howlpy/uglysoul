@@ -25,8 +25,8 @@ class Filters(commands.Cog):
 
         while self.response_queue:
             response = self.response_queue.pop(0)  
-            await message.channel.send(response)  
-
+            await message.reply(response)  
+            
         await self.bot.process_commands(message)
 
     def add_response(self, response):
