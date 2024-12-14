@@ -51,6 +51,7 @@ class DynamicMemory(commands.Cog):
                 """
 
 
+
             response = self.xai_client.send_prompt(prompt.format(message.content))
             return response
         except Exception as e:
