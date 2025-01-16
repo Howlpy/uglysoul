@@ -9,6 +9,7 @@ __pycache__/
 # Ignore virtual environment directories
 venv/
 env/
+.venv/
 
 # Ignore Jupyter Notebook checkpoints
 .ipynb_checkpoints/
@@ -23,4 +24,5 @@ Thumbs.db
 # Ignore compiled Python files
 *.pyo
 
+# Ignore dynamic memory
 dynamic_memory.json
