@@ -5,27 +5,28 @@ import random
 class Filters(commands.Cog):
     def __init__(self, bot, dynamic_memory):
         self.bot = bot
-        self.response_queue = [] 
-        self.dynamic_memory = dynamic_memory 
-        
+        self.response_queue = []
+        self.dynamic_memory = dynamic_memory
 
     @commands.Cog.listener()
     async def on_message(self, message):
-        if message.author.bot: 
+        if message.author.bot:
             return
 
         if not is_in_allowed_category(message):
             return
-        print(f"Mensaje recibido: {message.content}")
+
+        print(f"Message received: {message.content}")
         self.dynamic_memory.learn_from_message(message)
+
         response = self.dynamic_memory.generate_response(message)
         if response:
-            print(response + " (respuesta generada)")
+            print(f"Response generated: {response}")
             self.add_response(response)
 
         while self.response_queue:
-            response = self.response_queue.pop(0)  
-            await message.channel.send(response)  
+            response = self.response_queue.pop(0)
+            await message.channel.send(response)
 
         await self.bot.process_commands(message)
 
